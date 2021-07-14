@@ -50,7 +50,7 @@ window.addEventListener("load", function() {
             this.world.background.addLayer("parallax2", parallax2, 0, 0, parallax2.width, parallax2.height, 0.5, 0.4, 0.9, 0, 0, 0, -60);
             this.world.background.addLayer("parallax1", parallax1, 0, 0, parallax1.width, parallax1.height, 0.5, 0.5, 1.0, 0, 0, 0, -50);
 
-            this.map = new Map("/resources/data/", "level1.json");
+            this.map = new Map("./resources/data/", "level1.json");
 
             this.camera = new Camera(container);
             this.camera.zoom = 2.0;

@@ -298,6 +298,8 @@ window.addEventListener("load", function() {
                         player.len = false;
                         break;
                     case 32:
+                    case 88:
+                        e.preventDefault();
                         player.jump = true;
                         break;
                     case 38:
@@ -323,6 +325,7 @@ window.addEventListener("load", function() {
                     player.right = false;
                     break;
                 case 32:
+                case 88:
                     player.jump = false;
                     break;
                 case 38:

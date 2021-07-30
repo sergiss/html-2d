@@ -236,7 +236,7 @@ window.addEventListener("load", function() {
 
             }
             
-            if ( window.location === window.parent.location ) {
+            if ( window.location === window.parent.location ) { // Disable music in iframe
                 musicSound.play();
             }
 

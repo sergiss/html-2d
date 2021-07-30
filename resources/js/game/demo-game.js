@@ -235,7 +235,10 @@ window.addEventListener("load", function() {
                 }
 
             }
-            musicSound.play();
+            
+            if ( window.location === window.parent.location ) {
+                musicSound.play();
+            }
 
         },
         update: function(dt) {
@@ -284,6 +287,7 @@ window.addEventListener("load", function() {
 
         },
         onKeyDown: function(e) {
+             e.preventDefault();
             if (!keyMap[e.keyCode]) {
                 keyMap[e.keyCode] = true;
                 switch (e.keyCode) {
@@ -299,7 +303,6 @@ window.addEventListener("load", function() {
                         break;
                     case 32:
                     case 88:
-                        e.preventDefault();
                         player.jump = true;
                         break;
                     case 38:
@@ -314,6 +317,7 @@ window.addEventListener("load", function() {
             }
         },
         onKeyUp: function(e) {
+            e.preventDefault();
             keyMap[e.keyCode] = false;
             switch (e.keyCode) {
                 case 37:

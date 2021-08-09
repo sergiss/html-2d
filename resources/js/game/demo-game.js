@@ -287,7 +287,7 @@ window.addEventListener("load", function() {
 
         },
         onKeyDown: function(e) {
-             e.preventDefault();
+            
             if (!keyMap[e.keyCode]) {
                 keyMap[e.keyCode] = true;
                 switch (e.keyCode) {
@@ -317,7 +317,7 @@ window.addEventListener("load", function() {
             }
         },
         onKeyUp: function(e) {
-            e.preventDefault();
+            
             keyMap[e.keyCode] = false;
             switch (e.keyCode) {
                 case 37:

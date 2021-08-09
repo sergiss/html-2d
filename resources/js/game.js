@@ -35,10 +35,16 @@ function Game(listener) {
     this.eTime = this.sTime;
     this.acum = 0;
     if (listener.onKeyDown !== "undefined")
-        window.addEventListener('keydown', listener.onKeyDown);
+        window.addEventListener('keydown', (e)=>{
+            e.preventDefault();
+            listener.onKeyDown(e);
+        });
 
     if (listener.onKeyUp !== "undefined")
-        window.addEventListener('keyup', listener.onKeyUp);
+        window.addEventListener('keyup', (e)=>{
+            e.preventDefault();
+            listener.onKeyUp(e);
+        });
 
     this.tick = function() {
         if (this.running) {

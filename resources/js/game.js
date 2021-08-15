@@ -35,13 +35,13 @@ function Game(listener) {
     this.eTime = this.sTime;
     this.acum = 0;
     if (listener.onKeyDown !== "undefined")
-        window.addEventListener('keydown', (e)=>{
+        window.addEventListener('keydown', function(e) {
             e.preventDefault();
             listener.onKeyDown(e);
         });
 
     if (listener.onKeyUp !== "undefined")
-        window.addEventListener('keyup', (e)=>{
+        window.addEventListener('keyup', function(e) {
             e.preventDefault();
             listener.onKeyUp(e);
         });

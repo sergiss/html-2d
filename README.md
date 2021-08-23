@@ -1,5 +1,5 @@
 # html-2d
-Little engine for 2D HTML games
+Little engine for 2D HTML games written in Javascript
 
 [Live Demo](https://sergiss.github.io/html-2d/)
 

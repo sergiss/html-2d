@@ -1,33 +1,16 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Demo | www.sergiosoriano.com</title>
-    <link rel="icon" href="favicon.ico">
+    <title>Bug Game</title>
+    <link rel="stylesheet" href="./resources/css/game.css">
     <script src="./resources/js/includes.js"></script>
     <script src="./resources/js/game/resources.js"></script>
 </head>
-<style>
-    * {
-        padding: 0;
-        margin: 0;
-        overflow: hidden;
-    }
-    
-    #game-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-</style>
-
 <body>
-    <div id="game-container">
-    </div>
+    <canvas id="game"></canvas> 
+    <script src="./resources/js/game/demo-game.js" type="module"></script>  
 </body>
-<script src="./resources/js/game/demo-game.js"></script>
-
 </html>

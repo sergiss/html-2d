@@ -1,0 +1,12 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+#game {
+    width: 100%;
+    height: 100%;
+}

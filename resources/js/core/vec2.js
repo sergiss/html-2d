@@ -27,7 +27,7 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
-class Vec2 {
+export class Vec2 {
   constructor(x = 0, y = 0) {
 
     if (x instanceof Vec2) {
@@ -73,6 +73,8 @@ class Vec2 {
     if (x instanceof Vec2) {
         y = x.y;
         x = x.x;
+    } else if(!y){
+      y = x;
     }
     this.x *= x;
     this.y *= y;
@@ -153,6 +155,14 @@ class Vec2 {
 
   copy() {
     return new Vec2(this.x, this.y);
+  }
+
+  render(camera, color) {
+    const context = camera.context;
+    context.beginPath();
+    context.arc(this.x, this.y, 5, 0, 2 * Math.PI, false);
+    if(color) context.fillStyle = color;
+    context.fill();
   }
 
 }

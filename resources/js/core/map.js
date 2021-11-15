@@ -38,7 +38,7 @@ class Map {
         this.layerList = [];
     }
 
-    async load() {
+    async load(callback) {
     
         let response = await fetch(this.root + this.map);
         let responseText = await response.text();
@@ -85,6 +85,8 @@ class Map {
         this.tileset = JSON.parse(responseText);
         this.img = document.createElement("img");
         this.img.src = this.root + this.tileset.image;
+
+        if(callback) callback();
 
     }
 

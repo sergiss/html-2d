@@ -51,12 +51,19 @@ class Game {
 
   tick() {
     if (this.running) {
+      
+      const diff = (this.sTime - this.eTime);
+
       // compute delta time
-      let dt = (this.sTime - this.eTime) / 1000.0;
+      let dt = diff / 1000.0;
       this.eTime = this.sTime;
-      this.sTime = new Date().getTime();
+      this.sTime = Date.now();
       this.listener.update(Math.min(dt, 0.017)); // update
-      requestAnimationFrame(this.tick.bind(this));
+
+      setTimeout(()=> {
+        requestAnimationFrame(this.tick.bind(this));
+      }, 16.67 - diff);
+      
     }
   }
 

@@ -47,31 +47,26 @@ class Game {
         listener.onKeyUp(e);
       });
     }
+
+    this.loopTime = 1000 / 60;
+    this.tick = this.tick.bind(this);
   }
 
   tick() {
-    if (this.running) {
-      
-      const diff = (this.sTime - this.eTime);
-
-      // compute delta time
-      let dt = diff / 1000.0;
-      this.eTime = this.sTime;
-      this.sTime = Date.now();
-      this.listener.update(Math.min(dt, 0.017)); // update
-
+    if (this.running) { 
+      const start = Date.now();
+      this.listener.update(this.loopTime / 1000.0);  
       setTimeout(()=> {
-        requestAnimationFrame(this.tick.bind(this));
-      }, 16.67 - diff);
-      
+        this.tick();  
+      }, this.loopTime - (Date.now() - start));      
     }
   }
 
    start() {
     if(!this.running) {
       this.running = true;
-      this.listener.create();     
-      this.tick();
+      this.listener.create();    
+      requestAnimationFrame(this.tick);  
       console.log("Game loop started.");
     }   
   }

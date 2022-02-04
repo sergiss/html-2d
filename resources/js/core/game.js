@@ -48,17 +48,19 @@ class Game {
       });
     }
 
-    this.loopTime = 1000 / 60;
+    this.fps = 60;
     this.tick = this.tick.bind(this);
   }
 
   tick() {
-    if (this.running) { 
-      const start = Date.now();
-      this.listener.update(this.loopTime / 1000.0);  
-      setTimeout(()=> {
-        this.tick();  
-      }, this.loopTime - (Date.now() - start));      
+    if (this.running) {
+      requestAnimationFrame(this.tick); 
+      const now = Date.now();
+      const diff = now - this.startTime;
+      if (diff > this.tickTime) {
+        this.startTime = now - (diff % this.tickTime);
+        this.listener.update(this.tickTime / 1000.0);  
+      }   
     }
   }
 
@@ -66,8 +68,9 @@ class Game {
     if(!this.running) {
       this.running = true;
       this.listener.create();    
-      requestAnimationFrame(this.tick);  
-      console.log("Game loop started.");
+      this.startTime = Date.now();
+      this.tickTime = 1000 / this.fps;
+      requestAnimationFrame(this.tick); 
     }   
   }
 
